@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 
 const GnomeCard = ({gnome}) => {
 
@@ -9,7 +9,7 @@ const GnomeCard = ({gnome}) => {
       <p>Name: {gnome.name}</p>
       <p>Age: {gnome.age}</p>
       <p>Weight: {gnome.weight.toFixed(2)} Kg</p>
-      <a href="!#">Details</a>
+      <Link to={`/details/${gnome.id}`}>Details</Link>
     </div>
   );
 };
