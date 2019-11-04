@@ -1,15 +1,19 @@
 import React from 'react';
 import GnomeCard from './GnomeCard'
 
-const ListCards = ({gnomes}) => {
+const ListCards = ({gnomes, data}) => {
+
+  const render = gnomes ? gnomes : data
   return (
     <div>
-      {gnomes.map(gnome =>(
+      {
+      render.map(gnome =>(
         <GnomeCard 
             key={gnome.id}
             gnome={gnome}
         />
-      ))}
+      ))
+    }
     </div>
   );
 };

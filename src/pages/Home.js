@@ -1,17 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import useFetch from '../hooks/useFetch';
 import Header from '../components/Header';
+import SearchBar from '../components/SearchBar';
 import ListCards from '../components/ListCards';
 
 
 const Home = () => {
  
   const [data, loading] = useFetch("https://raw.githubusercontent.com/rrafols/mobile_test/master/data.json");
+  const [filter, setFilter] = useState();
+
+  
+  const updateSearch = (searchData)  => {
+    let filtered;
+    searchData !== '' ?  
+       filtered = data.Brastlewark.filter((gnomes) => {
+         return gnomes.name.toLowerCase().indexOf(searchData.toLowerCase()) !== -1;
+       }) : 
+       filtered = data.Brastlewark;
+       setFilter(filtered);
+  }
+
 
   return (
     <>
       <Header 
         title= "Brastlewark"
+      />
+      <SearchBar 
+        searchData={updateSearch}
       />
       
       { 
@@ -19,7 +36,8 @@ const Home = () => {
         <div>Is loading....</div>
       ) : (
         <ListCards 
-          gnomes= {data.Brastlewark}
+          data = {data.Brastlewark}
+          gnomes= {filter}
         />
       )
      }
