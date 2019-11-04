@@ -1,25 +1,49 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState, useEffect} from 'react';
+import Header from './components/Header'
+import ListCards from './components/ListCards'
 import './App.css';
 
 function App() {
+
+  const [isLoading, setIsLoading] = useState(true);
+  const [ gnomes, setGnomes ] = useState({});
+ 
+
+  useEffect(() => {
+
+    const consultAPI = async () => {
+      setIsLoading(true);
+
+      let url = "https://raw.githubusercontent.com/rrafols/mobile_test/master/data.json"
+  
+      // consultar la URL
+      const resp = await fetch(url);
+      const resApi = await resp.json();
+
+      setGnomes(resApi);
+      setIsLoading(false);
+    }
+
+
+    consultAPI();
+  }, [ ]) // si hay un cambio en ciudad o pais se vuelve a llamar a la Api
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header 
+        title= "Brastlewark"
+      />
+      
+     { 
+      isLoading ? (
+        <div>Is loading....</div>
+      ) : (
+        <ListCards 
+          gnomes= {gnomes.Brastlewark}
+        />
+      )
+     }
+     </>
   );
 }
 
