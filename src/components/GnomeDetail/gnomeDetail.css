@@ -46,3 +46,6 @@ span{
 .friendsProfessions p{
   font-size: 1.5rem;
 }
+.friendsProfessions a{
+  color:black;
+}

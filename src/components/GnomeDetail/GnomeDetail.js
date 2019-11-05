@@ -5,10 +5,19 @@ import './gnomeDetail.css';
 
 const GnomeDetail = ({idParams, data, loading}) => {
 
+
+
   const filterGnome = () =>{
-    const filterGnome = data.filter(d => d.id === parseInt(idParams));
-    const filterFriends = filterGnome[0].friends.map((friend, index) => <p key={index}>{friend}</p>)
+    const filterGnome = data.filter(gnome => gnome.id === parseInt(idParams));
     const filterProfession = filterGnome[0].professions.map((profession, index) => <p key={index}>{profession}</p>)
+
+    // Take info to link friends
+    const filterFriend = filterGnome[0].friends.map(friends => data.filter(friend => friends === friend.name ))
+    const filterLinkFriends = filterFriend.map(friend => 
+                                  <Link key={friend[0].id} to={`/details/${friend[0].id}`}>
+                                      <img src={friend[0].thumbnail} alt={friend[0].name}/>
+                                      {friend[0].name}
+                                  </Link>)
 
     return(
       <div className="cardDetailsContainer">
@@ -21,7 +30,7 @@ const GnomeDetail = ({idParams, data, loading}) => {
         </div>
         <div className="friendsProfessions">
         <h3><span>Friends</span></h3>
-          {filterFriends.length === 0 ? <p>Unknown</p> : filterFriends}
+          {filterLinkFriends.length === 0 ? <p>Unknown</p> : filterLinkFriends}
         </div>
         <div className="friendsProfessions">
         <h3><span>Professions</span></h3>
