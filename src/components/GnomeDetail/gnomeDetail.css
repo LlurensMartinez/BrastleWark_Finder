@@ -1,0 +1,48 @@
+.cardDetailsContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.cardDetailsContainer img{
+  width: 100%;
+  height: auto;
+}
+
+.cardDetailsContainer h2{
+  font-size: 3rem;
+  text-align: center;
+}
+.infoGnome{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  border-bottom: 1px solid black;
+  width: 90%;
+}
+
+.infoGnome p{
+  font-size: 1.2rem;
+  margin: 4%;
+}
+span{
+  color:rgb(250, 155, 14);
+}
+
+.friendsProfessions{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+  border-bottom: 1px solid black;
+  width: 90%;
+}
+
+.friendsProfessions h3{
+  font-size: 1.7rem;
+}
+.friendsProfessions p{
+  font-size: 1.5rem;
+}

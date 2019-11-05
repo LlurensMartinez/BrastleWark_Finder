@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import useFetch from '../hooks/useFetch';
-import Header from '../components/Header';
-import SearchBar from '../components/SearchBar';
-import ListCards from '../components/ListCards';
+import Header from '../components/Header/Header';
+import SearchBar from '../components/SearchBar/SearchBar';
+import ListCards from '../components/ListCards/ListCards';
 
 
 const Home = () => {
@@ -24,9 +24,7 @@ const Home = () => {
 
   return (
     <>
-      <Header 
-        title= "Brastlewark"
-      />
+      <Header />
       <SearchBar 
         searchData={updateSearch}
       />

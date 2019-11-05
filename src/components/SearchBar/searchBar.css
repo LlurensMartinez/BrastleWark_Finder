@@ -1,0 +1,16 @@
+.inputContainer{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+input{
+  width: 80%;
+  height: 35px;
+  border: 2px solid rgb(250, 155, 14);
+  border-radius: 10px;
+  font-size:20px;
+  font-weight: bold;
+  text-align: center;
+  
+}

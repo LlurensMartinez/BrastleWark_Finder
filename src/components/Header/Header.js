@@ -1,9 +1,10 @@
 import React from 'react';
+import './header.css';
 
-function Header({title}) {
+function Header() {
   return (
     <header>
-      <h1>{title}</h1>
+      <h1>Brastle<span>wark</span></h1>
     </header>
   );
 };

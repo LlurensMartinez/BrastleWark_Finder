@@ -1,7 +1,7 @@
 import React from 'react';
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import useFetch from '../hooks/useFetch';
-import GnomeDetail from '../components/GnomeDetail'
+import GnomeDetail from '../components/GnomeDetail/GnomeDetail'
 
 const GnomeDetails = () => {
 
@@ -9,14 +9,11 @@ const GnomeDetails = () => {
   const [data, loading] = useFetch("https://raw.githubusercontent.com/rrafols/mobile_test/master/data.json");
 
   return(
-  <>
-    <Link to={"/"}>GO BACK!</Link>
     <GnomeDetail 
       idParams = {id}
       data = {data.Brastlewark}
       loading = {loading}
     />
-  </>
   );
 };
 
