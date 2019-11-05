@@ -14,8 +14,8 @@ const GnomeDetail = ({idParams, data, loading}) => {
     // Take info to link friends
     const filterFriend = filterGnome[0].friends.map(friends => data.filter(friend => friends === friend.name ))
     const filterLinkFriends = filterFriend.map(friend =>
-                                  <div className="friendsContainer">
-                                    <Link key={friend[0].id} to={`/details/${friend[0].id}`}>
+                                  <div key={friend[0].id} className="friendsContainer">
+                                    <Link  to={`/details/${friend[0].id}`}>
                                         <img src={friend[0].thumbnail} alt={friend[0].name}/>
                                         <p>{friend[0].name}</p>
                                     </Link>
