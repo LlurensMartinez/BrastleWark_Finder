@@ -47,7 +47,9 @@ const GnomeDetail = ({idParams, data, loading}) => {
     <>
       { 
       loading ? (
-        <div>Is loading....</div>
+        <div className="loadingCenter">
+          <div className="lds-hourglass"></div>
+        </div>
       ) : (
         filterGnome()
       )

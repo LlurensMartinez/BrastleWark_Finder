@@ -31,7 +31,9 @@ const Home = () => {
       
       { 
       loading ? (
-        <div>Is loading....</div>
+        <div className="loadingCenter">
+          <div className="lds-hourglass"></div>
+        </div>
       ) : (
         <ListCards 
           data = {data.Brastlewark}
