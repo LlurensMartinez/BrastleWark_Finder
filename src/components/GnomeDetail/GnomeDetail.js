@@ -13,30 +13,32 @@ const GnomeDetail = ({idParams, data, loading}) => {
 
     // Take info to link friends
     const filterFriend = filterGnome[0].friends.map(friends => data.filter(friend => friends === friend.name ))
-    const filterLinkFriends = filterFriend.map(friend => 
-                                  <Link key={friend[0].id} to={`/details/${friend[0].id}`}>
-                                      <img src={friend[0].thumbnail} alt={friend[0].name}/>
-                                      {friend[0].name}
-                                  </Link>)
+    const filterLinkFriends = filterFriend.map(friend =>
+                                  <div className="friendsContainer">
+                                    <Link key={friend[0].id} to={`/details/${friend[0].id}`}>
+                                        <img src={friend[0].thumbnail} alt={friend[0].name}/>
+                                        <p>{friend[0].name}</p>
+                                    </Link>
+                                  </div>)
 
     return(
       <div className="cardDetailsContainer">
         <img src={filterGnome[0].thumbnail} alt=""/>
         <h2>{filterGnome[0].name}</h2>
         <div className="infoGnome">
-          <p><span>Weight</span> {filterGnome[0].weight}</p>
-          <p><span>Height</span> {filterGnome[0].height}</p>
+          <p><span>Weight</span> {filterGnome[0].weight.toFixed(2)} Kg</p>
+          <p><span>Height</span> {filterGnome[0].height.toFixed(2)} cm</p>
           <p><span>Hair Color</span> {filterGnome[0].hair_color}</p>
         </div>
-        <div className="friendsProfessions">
         <h3><span>Friends</span></h3>
+        <div className="friendsProfessions">
           {filterLinkFriends.length === 0 ? <p>Unknown</p> : filterLinkFriends}
         </div>
-        <div className="friendsProfessions">
         <h3><span>Professions</span></h3>
-        {filterProfession.length === 0 ? <p>Unknown</p> : filterProfession}
+        <div className="friendsProfessions">
+          {filterProfession.length === 0 ? <p>Unknown</p> : filterProfession}
         </div>
-        <Link to={"/"}>GO BACK!</Link>
+        <Link className="goBack" to={"/"}><i className="material-icons">arrow_back</i>GO BACK!</Link>
       </div>
 
     )

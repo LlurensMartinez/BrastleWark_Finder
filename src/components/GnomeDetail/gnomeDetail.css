@@ -33,14 +33,14 @@ span{
 
 .friendsProfessions{
   display: flex;
-  flex-direction: column;
+  flex-wrap:wrap;
   justify-content: center;
   align-items:center;
   border-bottom: 1px solid black;
   width: 90%;
 }
 
-.friendsProfessions h3{
+.cardDetailsContainer h3{
   font-size: 1.7rem;
 }
 .friendsProfessions p{
@@ -48,4 +48,43 @@ span{
 }
 .friendsProfessions a{
   color:black;
+  text-align: center;
+}
+
+.friendsProfessions p{
+  margin:5%;
+}
+
+.goBack{
+  margin: 5%;
+}
+
+@media screen 
+  and (min-width: 1200px) 
+  and (max-width: 1600px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (min-resolution: 192dpi) { 
+    
+    .cardDetailsContainer{
+      width: 50%;
+      height: auto;
+    }
+
+    .cardDetailsContainer img{
+      width: 50%;
+      height: auto;
+    }
+
+    .friendsContainer{
+      width: 230px;
+      height: 240px;
+      box-shadow: -1px -1px 35px -15px rgba(0,0,0,.70);
+      margin: 4%;
+    }
+
+    .friendsProfessions img{
+      width: 100%;
+      height: 170px;
+    }
+
 }
