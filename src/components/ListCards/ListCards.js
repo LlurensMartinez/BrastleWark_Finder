@@ -9,7 +9,7 @@ const ListCards = ({gnomes, data}) => {
   return (
     <div className="cardsWrapped">
       {
-      render.length != 0 ?
+      render.length !== 0 ?
       render.map(gnome =>(
         <GnomeCard 
             key={gnome.id}
