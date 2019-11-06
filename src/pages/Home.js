@@ -29,7 +29,10 @@ const Home = () => {
         searchData={updateSearch}
       />
       
-      { 
+      {
+      error.status ? 
+      <p>{error.message}</p>
+      :
       loading ? (
         <div className="loadingCenter">
           <div className="lds-hourglass"></div>

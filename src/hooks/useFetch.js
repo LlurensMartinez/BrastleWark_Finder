@@ -4,7 +4,8 @@ const useFetch = (url) => {
 
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState({ status: false, message: '' });
+  const [error, setError] = useState({ status: false, 
+                                       message: 'Ha ocurrido un error, vuelve a intentarlo' });
 
   useEffect(() => {
     (async () => {

@@ -3,23 +3,22 @@ import { Link } from "react-router-dom";
 import './gnomeDetail.css';
 
 
-const GnomeDetail = ({idParams, data, loading}) => {
-
-
+const GnomeDetail = ({idParams, data, loading, error}) => {
 
   const filterGnome = () =>{
     const filterGnome = data.filter(gnome => gnome.id === parseInt(idParams));
-    const filterProfession = filterGnome[0].professions.map((profession, index) => <p key={index}>{profession}</p>)
+    const filterProfession = filterGnome[0].professions.map((profession, index) => <p key={index}>{profession}</p>);
 
     // Take info to link friends
-    const filterFriend = filterGnome[0].friends.map(friends => data.filter(friend => friends === friend.name ))
-    const filterLinkFriends = filterFriend.map(friend =>
-                                  <div key={friend[0].id} className="friendsContainer">
-                                    <Link  to={`/details/${friend[0].id}`}>
-                                        <img src={friend[0].thumbnail} alt={friend[0].name}/>
-                                        <p>{friend[0].name}</p>
-                                    </Link>
-                                  </div>)
+    const filterFriend = filterGnome[0].friends.map(friends => data.filter(friend => friends === friend.name ));
+  
+    const filterLinkFriends = filterFriend.map(
+          friend => <div key={friend[0].id} className="friendsContainer">    
+                     <Link  to={`/details/${friend[0].id}`}>
+                          <img src={friend[0].thumbnail} alt={friend[0].name}/>
+                          <p>{friend[0].name}</p>
+                      </Link>
+                    </div>)
 
     return(
       <div className="cardDetailsContainer">
@@ -45,7 +44,10 @@ const GnomeDetail = ({idParams, data, loading}) => {
  }
   return (
     <>
-      { 
+      {
+      error.status ?
+      <p>{error.messaage}</p>
+      :
       loading ? (
         <div className="loadingCenter">
           <div className="lds-hourglass"></div>
