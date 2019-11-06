@@ -6,13 +6,14 @@ import GnomeDetail from '../components/GnomeDetail/GnomeDetail'
 const GnomeDetails = () => {
 
   let { id } = useParams();
-  const [data, loading] = useFetch("https://raw.githubusercontent.com/rrafols/mobile_test/master/data.json");
+  const [data, loading, error] = useFetch("https://raw.githubusercontent.com/rrafols/mobile_test/master/data.json");
 
   return(
     <GnomeDetail 
       idParams = {id}
       data = {data.Brastlewark}
       loading = {loading}
+      error = {error}
     />
   );
 };

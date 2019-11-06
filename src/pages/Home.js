@@ -7,7 +7,7 @@ import ListCards from '../components/ListCards/ListCards';
 
 const Home = () => {
  
-  const [data, loading] = useFetch("https://raw.githubusercontent.com/rrafols/mobile_test/master/data.json");
+  const [data, loading, error] = useFetch("https://raw.githubusercontent.com/rrafols/mobile_test/master/data.json");
   const [filter, setFilter] = useState();
 
   
