@@ -5,6 +5,7 @@ import './listCards.css';
 const ListCards = ({gnomes, data}) => {
 
   const render = gnomes ? gnomes : data
+  
   return (
     <div className="cardsWrapped">
       {

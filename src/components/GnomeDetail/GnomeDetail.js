@@ -46,7 +46,7 @@ const GnomeDetail = ({idParams, data, loading, error}) => {
     <>
       {
       error.status ?
-      <p>{error.messaage}</p>
+      <p>{error.message}</p>
       :
       loading ? (
         <div className="loadingCenter">
