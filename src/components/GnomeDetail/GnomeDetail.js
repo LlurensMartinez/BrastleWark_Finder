@@ -3,9 +3,8 @@ import { Link } from "react-router-dom";
 import './gnomeDetail.css';
 
 
-const GnomeDetail = ({idParams, data, loading, error}) => {
+const GnomeDetail = ({idParams, data}) => {
 
-  const filterGnome = () =>{
     const filterGnome = data.filter(gnome => gnome.id === parseInt(idParams));
     const filterProfession = filterGnome[0].professions.map((profession, index) => <p key={index}>{profession}</p>);
 
@@ -20,7 +19,7 @@ const GnomeDetail = ({idParams, data, loading, error}) => {
                       </Link>
                     </div>)
 
-    return(
+    return (
       <div className="cardDetailsContainer">
         <img src={filterGnome[0].thumbnail} alt=""/>
         <h2>{filterGnome[0].name}</h2>
@@ -39,25 +38,8 @@ const GnomeDetail = ({idParams, data, loading, error}) => {
         </div>
         <Link className="goBack" to={"/"}><i className="material-icons">arrow_back</i>GO BACK!</Link>
       </div>
-
     )
- }
-  return (
-    <>
-      {
-      error.status ?
-      <p>{error.message}</p>
-      :
-      loading ? (
-        <div className="loadingCenter">
-          <div className="lds-hourglass"></div>
-        </div>
-      ) : (
-        filterGnome()
-      )
-     }
-    </>
-  );
-};
+     
+}
 
 export default GnomeDetail;
