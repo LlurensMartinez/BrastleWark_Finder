@@ -3,6 +3,7 @@ import useFetch from 'react-hook-usefetch';
 import Header from '../components/Header/Header';
 import SearchBar from '../components/SearchBar/SearchBar';
 import ListCards from '../components/ListCards/ListCards';
+import service from '../lib/service';
 
 
 const Home = () => {
@@ -20,7 +21,7 @@ const Home = () => {
                                 gnomes= {filter}
                               />)
   }
-  
+
   const updateSearch = (searchData)  => {
     let filtered;
     searchData !== '' ?  
