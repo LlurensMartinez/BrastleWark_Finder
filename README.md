@@ -39,11 +39,11 @@ If the project don't open automatically , write in you browser http://localhost:
 
 ## Services
 
-- Hooks -> useFetch
+- npm useFetch for:
 
-         - Get info from API
+         - Get gnomes from API
          - Loading state
-         - Control errors from API
+         - Control errors 
 
 # More info
 
